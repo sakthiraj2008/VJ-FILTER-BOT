@@ -19,9 +19,6 @@ async def start(client, message):
         buttons = [[
             InlineKeyboardButton('⤬ ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ ⤬', url=f'http://t.me/{me.username}?startgroup=true')
         ]]
-        if cd["update_channel_link"] != None:
-            up = cd["update_channel_link"]
-            buttons.append([InlineKeyboardButton('🍿 ᴊᴏɪɴ ᴜᴘᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ 🍿', url=up)])
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply(script.CLONE_START_TXT.format(message.from_user.mention if message.from_user else message.chat.title, me.username, me.first_name), reply_markup=reply_markup)
         return 
@@ -34,9 +31,6 @@ async def start(client, message):
             InlineKeyboardButton('🕵️ ʜᴇʟᴘ', callback_data='help'),
             InlineKeyboardButton('🔍 ᴀʙᴏᴜᴛ', callback_data='about')
         ]]
-        if cd["update_channel_link"] != None:
-            up = cd["update_channel_link"]
-            buttons.append([InlineKeyboardButton('🍿 ᴊᴏɪɴ ᴜᴘᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ 🍿', url=up)])
         reply_markup = InlineKeyboardMarkup(buttons)
         m=await message.reply_sticker("CAACAgUAAxkBAAEKVaxlCWGs1Ri6ti45xliLiUeweCnu4AACBAADwSQxMYnlHW4Ls8gQMAQ") 
         await asyncio.sleep(1)
@@ -103,14 +97,6 @@ async def start(client, message):
             f_caption=files1.caption
             if f_caption is None:
                 f_caption = f"{' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@'), files1.file_name.split()))}"
-            if cd["update_channel_link"] != None:
-                up = cd["update_channel_link"]
-                button = [[
-                    InlineKeyboardButton('🍿 ᴊᴏɪɴ ᴜᴘᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ 🍿', url=up)
-                ]]
-                reply_markup=InlineKeyboardMarkup(button)
-            else:
-                reply_markup=None
        
             msg = await client.send_cached_media(
                 chat_id=message.from_user.id,
@@ -150,14 +136,6 @@ async def start(client, message):
             vj = await client.get_messages(PUBLIC_FILE_CHANNEL, k.id)
             mg = getattr(vj, vj.media.value)
             file_id = mg.file_id
-            if cd["update_channel_link"] != None:
-                up = cd["update_channel_link"]
-                button = [[
-                    InlineKeyboardButton('🍿 ᴊᴏɪɴ ᴜᴘᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ 🍿', url=up)
-                ]]
-                reply_markup=InlineKeyboardMarkup(button)
-            else:
-                reply_markup=None
             msg = await client.send_cached_media(
                 chat_id=message.from_user.id,
                 file_id=file_id,
@@ -187,14 +165,6 @@ async def start(client, message):
     f_caption=files.caption
     if f_caption is None:
         f_caption = f"{' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@'), files.file_name.split()))}"
-    if cd["update_channel_link"] != None:
-        up = cd["update_channel_link"]
-        button = [[
-            InlineKeyboardButton('🍿 ᴊᴏɪɴ ᴜᴘᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ 🍿', url=up)
-        ]]
-        reply_markup=InlineKeyboardMarkup(button)
-    else:
-        reply_markup=None
     k = await temp.BOT.send_cached_media(chat_id=PUBLIC_FILE_CHANNEL, file_id=file_id)
     vj = await client.get_messages(PUBLIC_FILE_CHANNEL, k.id)
     m = getattr(vj, vj.media.value)
