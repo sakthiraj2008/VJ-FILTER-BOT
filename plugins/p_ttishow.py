@@ -69,7 +69,7 @@ async def leave_a_chat(bot, message):
     except:
         chat = chat
     try:
-        buttons = [
+        buttons = [[
             InlineKeyboardButton('Use Me Here', url=f'https://t.me/{SUPPORT_CHAT}')
         ]]
         reply_markup=InlineKeyboardMarkup(buttons)
