@@ -117,7 +117,7 @@ Join My <a href='https://telegram.dog/vj_botz'>Update Channel</a> For More Updat
 ### Optional Variables
 * <b>`PICS`: Telegraph links of images to show in start message.( Multiple images can be used separated by space )
 * `FILE_STORE_CHANNEL`: Channel from were file store links of posts should be made.Separate multiple IDs by space
-* Check [info.py](https://github.com/Tamilupdates/VJ-FILTER-BOT/blob/Tech_VJ/info.py) for more optional variables.</b>
+* Check [info.py](https://github.com/Tamilupdates/VJ-FILTER-BOT/blob/main/info.py) for more optional variables.</b>
 
 
 <details><summary><b>Deploy To Heroku</b></summary>
@@ -202,7 +202,7 @@ Fork The Repo And Edit As Per Your Needs.</b>
 
 ## Disclaimer
 [![GNU Affero General Public License 2.0](https://www.gnu.org/graphics/agplv3-155x51.png)](https://www.gnu.org/licenses/agpl-3.0.en.html#header)    
-<b>Licensed under [GNU AGPL 2.0.](https://github.com/Tamilupdates/VJ-FILTER-BOT/blob/Tech_VJ/LICENSE)
+<b>Licensed under [GNU AGPL 2.0.](https://github.com/Tamilupdates/VJ-FILTER-BOT/blob/main/LICENSE)
 Selling The Codes To Other People For Money Is *Strictly Prohibited*.</b>
 
 </pre>
