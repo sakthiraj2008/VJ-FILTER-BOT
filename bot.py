@@ -19,7 +19,7 @@ from database.users_chats_db import db
 from info import *
 from utils import temp
 from typing import Union, Optional, AsyncGenerator
-from Script import script 
+from script import script
 from datetime import date, datetime 
 from aiohttp import web
 from plugins import web_server

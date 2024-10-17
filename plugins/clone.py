@@ -5,7 +5,7 @@ from pyrogram import Client, filters, enums
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, BotCommand
 from database.users_chats_db import db
 import re
-from Script import script
+from script import script
 
 @Client.on_message(filters.command('clone'))
 async def clone_menu(client, message):

@@ -1,6 +1,6 @@
 import math
 import time 
-from Script import script
+from script import script
 from pyrogram.errors import UserNotParticipant
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from pyrogram import enums
