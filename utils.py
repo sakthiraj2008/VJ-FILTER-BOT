@@ -5,7 +5,7 @@ from pyrogram.types import Message, InlineKeyboardButton, InlineKeyboardMarkup
 from pyrogram import enums
 from pyrogram.errors import *
 from typing import Union
-from script import script
+from Script import script
 from datetime import datetime, date
 from typing import List
 from database.users_chats_db import db
@@ -66,7 +66,7 @@ async def is_subscribed(bot, query):
                 return True
             else:
                 try:
-                    user_data = await bot.get_chat_member(UPDATES_CHANNEL, query.from_user.id)
+                    user_data = await bot.get_chat_member(AUTH_CHANNEL, query.from_user.id)
                 except UserNotParticipant:
                     pass
                 except Exception as e:
@@ -79,7 +79,7 @@ async def is_subscribed(bot, query):
             return False
     else:
         try:
-            user = await bot.get_chat_member(UPDATES_CHANNEL, query.from_user.id)
+            user = await bot.get_chat_member(AUTH_CHANNEL, query.from_user.id)
         except UserNotParticipant:
             pass
         except Exception as e:
