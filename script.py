@@ -218,9 +218,8 @@ Nᴀᴍᴇ - {}"""
     IMDB_TEMPLATE_TXT = """
 <b>🔎 Query: {qurey}
 
-<b>🏷 Title : <a href={url}>{title}</a>
+🏷 Title : <a href={url}>{title}</a>
 📆 Year : <a href={url}/releaseinfo>{year}</a>
-☀️ Languages : {languages}
 🎭 Genres : {genres}
 🌟 Rating : <a href={url}/ratings>{rating}</a> / 10
 
