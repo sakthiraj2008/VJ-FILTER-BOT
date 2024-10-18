@@ -219,10 +219,10 @@ Nᴀᴍᴇ - {}"""
 <b>🔎 Query: {qurey}
 
 <b>🏷 Title</b>: <a href={url}>{title}</a>
-🎭 Genres: {genres}
 📆 Year: <a href={url}/releaseinfo>{year}</a>
-🌟 Rating: <a href={url}/ratings>{rating}</a> / 10
 ☀️ Languages : {languages}
+🎭 Genres: {genres}
+🌟 Rating: <a href={url}/ratings>{rating}</a> / 10
 
 👤 Requested by : {message.from_user.mention}</b>"""
     
