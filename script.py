@@ -216,13 +216,13 @@ Nᴀᴍᴇ - {}"""
 ⚙️ Fɪʟᴇ Sɪᴢᴇ : {file_size}</b>""" 
 
     IMDB_TEMPLATE_TXT = """
-<b>🔎 Query: <code>{qurey}</code>
+<b>🔎 Query: {qurey}
 
-<b>🏷 Title</b>: <a href={url}>{title}</a>
-📆 Year: <a href={url}/releaseinfo>{year}</a>
+<b>🏷 Title : <a href={url}>{title}</a>
+📆 Year : <a href={url}/releaseinfo>{year}</a>
 ☀️ Languages : {languages}
-🎭 Genres: {genres}
-🌟 Rating: <a href={url}/ratings>{rating}</a> / 10
+🎭 Genres : {genres}
+🌟 Rating : <a href={url}/ratings>{rating}</a> / 10
 
 👤 Requested by : {message.from_user.mention}</b>"""
     
