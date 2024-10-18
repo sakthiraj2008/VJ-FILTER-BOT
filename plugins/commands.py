@@ -1,5 +1,6 @@
 import os, string, logging, random, asyncio, time, datetime, re, sys, json, base64
 from script import script
+from re import search
 from pyrogram import Client, filters, enums
 from pyrogram.errors import ChatAdminRequired, FloodWait
 from pyrogram.types import *
@@ -385,8 +386,10 @@ async def start(client, message):
         files_ = await get_file_details(file_id)
         files = files_[0]
         title = ' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@') and x not in ['mkv', 'mp4'], files.file_name.split()))
+        # Extracting the title with any four-digit number in parentheses
+        final_title = search(r'^(.*?\s\(\d{4}\))', files.file_name).group(1)
         g = await get_shortlink(chat_id, f"https://telegram.me/{temp.U_NAME}?start=file_{file_id}")
-        k = await client.send_message(chat_id=user,text=f"<b>📂 Fɪʟᴇ Nᴀᴍᴇ : {title} \n\n⚙️ Fɪʟᴇ Sɪᴢᴇ : {get_size(files.file_size)}\n\n🔗 Fɪʟᴇ Lɪɴᴋ : {g}\n\n<i>Note: This message is deleted in 20 mins to avoid copyrights. Save the link to Somewhere else</i></b>", reply_markup=InlineKeyboardMarkup(
+        k = await client.send_message(chat_id=user,text=f"<b>📂 Fɪʟᴇ Nᴀᴍᴇ : {final_title} \n\n⚙️ Fɪʟᴇ Sɪᴢᴇ : {get_size(files.file_size)}\n\n🔗 Fɪʟᴇ Lɪɴᴋ : {g}\n\n<i>Note: This message is deleted in 20 mins to avoid copyrights. Save the link to Somewhere else</i></b>", reply_markup=InlineKeyboardMarkup(
                 [
                     [
                         InlineKeyboardButton('📂 Dᴏᴡɴʟᴏᴀᴅ Nᴏᴡ 📂', url=g)
