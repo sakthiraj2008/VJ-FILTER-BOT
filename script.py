@@ -216,7 +216,7 @@ Nᴀᴍᴇ - {}"""
 ⚙️ Fɪʟᴇ Sɪᴢᴇ : {file_size}</b>""" 
 
     IMDB_TEMPLATE_TXT = """
-<b>🔎 Query: {qurey}
+<b>🔎 Query: <code>{qurey}</code>
 
 <b>🏷 Title</b>: <a href={url}>{title}</a>
 📆 Year: <a href={url}/releaseinfo>{year}</a>
