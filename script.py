@@ -216,17 +216,15 @@ Nᴀᴍᴇ - {}"""
 ⚙️ Fɪʟᴇ Sɪᴢᴇ : {file_size}</b>""" 
 
     IMDB_TEMPLATE_TXT = """
-<b>Query: {qurey}
+<b>🔎 Query: {qurey}
 
 <b>🏷 Title</b>: <a href={url}>{title}</a>
 🎭 Genres: {genres}
 📆 Year: <a href={url}/releaseinfo>{year}</a>
-🌟 Rating: <a href={url}/ratings>{rating}</a> / 10 (based on {votes} user ratings.)
-☀️ Languages : <code>{languages}</code>
+🌟 Rating: <a href={url}/ratings>{rating}</a> / 10
+☀️ Languages : {languages}
 
-⏰Result Shown in: {remaining_seconds} <i>seconds</i> 🔥
-
-Requested by : {message.from_user.mention}</b>"""
+👤 Requested by : {message.from_user.mention}</b>"""
     
     ALL_FILTERS = """
 <b>Hᴇʏ {}, Tʜᴇsᴇ ᴀʀᴇ ᴍʏ ᴛʜʀᴇᴇ ᴛʏᴘᴇs ᴏғ ғɪʟᴛᴇʀs.</b>"""
