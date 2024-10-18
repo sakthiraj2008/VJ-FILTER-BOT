@@ -202,13 +202,13 @@ Nᴀᴍᴇ - {}"""
 🫣 For Movie Join First Then Click On Try Again Button 😅"""
 
     NORSLTS = """ 
-★ #𝗡𝗼𝗥𝗲𝘀𝘂𝗹𝘁𝘀 ★
+<b>★ #𝗡𝗼𝗥𝗲𝘀𝘂𝗹𝘁𝘀 ★
 
-𝗜𝗗 <b>: {}</b>
+𝗜𝗗 : #ID{}
 
-𝗡𝗮𝗺𝗲 <b>: {}</b>
+𝗡𝗮𝗺𝗲 : {}
 
-𝗠𝗲𝘀𝘀𝗮𝗴𝗲 <b>: {}</b>"""
+𝗠𝗲𝘀𝘀𝗮𝗴𝗲: <code>{}</code></b>"""
 
     CAPTION = """
 <b>📂Fɪʟᴇ Nᴀᴍᴇ : {file_name}
