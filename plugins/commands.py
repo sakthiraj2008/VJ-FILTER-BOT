@@ -384,7 +384,7 @@ async def start(client, message):
         settings = await get_settings(chat_id)
         files_ = await get_file_details(file_id)
         files = files_[0]
-        title = ' '.join([x for x in files.file_name.split() if not x.startswith('[') and not x.startswith('@') and x not in ['mkv', 'mp4']])
+        title = ' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@') and x not in ['mkv', 'mp4'], files.file_name.split()))
         g = await get_shortlink(chat_id, f"https://telegram.me/{temp.U_NAME}?start=file_{file_id}")
         k = await client.send_message(chat_id=user,text=f"<b>📂 Fɪʟᴇ Nᴀᴍᴇ : {title} \n\n⚙️ Fɪʟᴇ Sɪᴢᴇ : {get_size(files.file_size)}\n\n🔗 Fɪʟᴇ Lɪɴᴋ : {g}\n\n<i>Note: This message is deleted in 20 mins to avoid copyrights. Save the link to Somewhere else</i></b>", reply_markup=InlineKeyboardMarkup(
                 [
@@ -409,7 +409,7 @@ async def start(client, message):
             file_id = file.file_id
             files_ = await get_file_details(file_id)
             files1 = files_[0]
-            title = ' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@'), files1.file_name.split()))
+            title = ' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@') and x not in ['mkv', 'mp4'], files.file_name.split()))
             size=get_size(files1.file_size)
             f_caption=files1.caption
             if CUSTOM_FILE_CAPTION:
@@ -419,7 +419,7 @@ async def start(client, message):
                     logger.exception(e)
                     f_caption=f_caption
             if f_caption is None:
-                f_caption = f"{' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@'), files1.file_name.split()))}"
+                f_caption = f"{' '.join([x for x in files.file_name.split() if not x.startswith('[') and not x.startswith('@') and x not in ['mkv', 'mp4']])}"
             if not await db.has_premium_access(message.from_user.id):
                 if not await check_verification(client, message.from_user.id) and VERIFY == True:
                     btn = [[
@@ -474,7 +474,7 @@ async def start(client, message):
         if settings['is_shortlink'] and not await db.has_premium_access(user):
             files_ = await get_file_details(file_id)
             files = files_[0]
-            title = ' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@'), files.file_name.split()))
+            title = ' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@') and x not in ['mkv', 'mp4'], files.file_name.split()))
             g = await get_shortlink(chat_id, f"https://telegram.me/{temp.U_NAME}?start=file_{file_id}")
             k = await client.send_message(chat_id=message.from_user.id,text=f"<b>📂 Fɪʟᴇ Nᴀᴍᴇ : {title} \n\n⚙️ Fɪʟᴇ Sɪᴢᴇ : {get_size(files.file_size)}\n\n🔗 Fɪʟᴇ Lɪɴᴋ : {g}\n\n<i>Note: This message is deleted in 20 mins to avoid copyrights. Save the link to Somewhere else</i></b>", reply_markup=InlineKeyboardMarkup(
                     [
@@ -531,7 +531,7 @@ async def start(client, message):
             )
             filetype = msg.media
             file = getattr(msg, filetype.value)
-            title = ' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@'), file.file_name.split()))
+            title = ' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@') and x not in ['mkv', 'mp4'], files.file_name.split()))
             size=get_size(file.file_size)
             f_caption = f"<code>{title}</code>"
             if CUSTOM_FILE_CAPTION:
@@ -555,7 +555,7 @@ async def start(client, message):
             pass
         return await message.reply('No such file exist.')
     files = files_[0]
-    title = ' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@'), files.file_name.split()))
+    title = ' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@') and x not in ['mkv', 'mp4'], files.file_name.split()))
     size=get_size(files.file_size)
     f_caption=files.caption
     if CUSTOM_FILE_CAPTION:

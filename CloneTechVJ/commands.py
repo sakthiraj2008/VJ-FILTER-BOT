@@ -73,7 +73,7 @@ async def start(client, message):
         user = message.from_user.id
         files_ = await get_file_details(file_id)
         files = files_[0]
-        title = ' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@'), files.file_name.split()))
+        title = ' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@') and x not in ['mkv', 'mp4'], files.file_name.split()))
         g = await get_clone_shortlink(f"https://telegram.me/{me.username}?start=file_{file_id}", cd["url"], cd["api"]) 
         t = cd["tutorial"]
         btn = [[
@@ -99,11 +99,11 @@ async def start(client, message):
             file_id = mg.file_id
             files_ = await get_file_details(vj_file_id)
             files1 = files_[0]
-            title = ' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@'), files1.file_name.split()))
+            title = ' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@') and x not in ['mkv', 'mp4'], files.file_name.split()))
             size=get_size(files1.file_size)
             f_caption=files1.caption
             if f_caption is None:
-                f_caption = f"{' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@'), files1.file_name.split()))}"
+                f_caption = f"{' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@') and x not in ['mkv', 'mp4'], files.file_name.split()))}"
             if cd["update_channel_link"] != None:
                 up = cd["update_channel_link"]
                 button = [[
@@ -131,7 +131,7 @@ async def start(client, message):
         if cd['url']:
             files_ = await get_file_details(file_id)
             files = files_[0]
-            title = ' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@'), files.file_name.split()))
+            title = ' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@') and x not in ['mkv', 'mp4'], files.file_name.split()))
             g = await get_clone_shortlink(f"https://telegram.me/{me.username}?start=file_{file_id}", cd["url"], cd["api"])
             t = cd["tutorial"]
             btn = [[
@@ -168,7 +168,7 @@ async def start(client, message):
             )
             filetype = msg.media
             file = getattr(msg, filetype.value)
-            title = ' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@'), file.file_name.split()))
+            title = ' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@') and x not in ['mkv', 'mp4'], files.file_name.split()))
             size=get_size(file.file_size)
             f_caption = f"<code>{title}</code>"
             await msg.edit_caption(
@@ -184,7 +184,7 @@ async def start(client, message):
             pass
         return await message.reply('No such file exist.')
     files = files_[0]
-    title = ' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@'), files.file_name.split()))
+    title = ' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@') and x not in ['mkv', 'mp4'], files.file_name.split()))
     size=get_size(files.file_size)
     f_caption=files.caption
     if f_caption is None:
