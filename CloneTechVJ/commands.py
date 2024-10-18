@@ -130,6 +130,7 @@ async def start(client, message):
         if cd['url']:
             files_ = await get_file_details(file_id)
             files = files_[0]
+            title = ' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@'), files.file_name.split()))
             g = await get_clone_shortlink(f"https://telegram.me/{me.username}?start=file_{file_id}", cd["url"], cd["api"])
             t = cd["tutorial"]
             btn = [[
@@ -137,7 +138,7 @@ async def start(client, message):
             ],[
                 InlineKeyboardButton('⁉️ Hᴏᴡ Tᴏ Dᴏᴡɴʟᴏᴀᴅ ⁉️', url=t)
             ]]
-            k = await client.send_message(chat_id=message.from_user.id,text=f"<b>📂 Fɪʟᴇ Nᴀᴍᴇ : <code>{files.file_name}</code> \n\n⚙️ Fɪʟᴇ Sɪᴢᴇ : {get_size(files.file_size)}\n\n🔗 Fɪʟᴇ Lɪɴᴋ : {g}\n\n<i>Note: This message is deleted in 20 mins to avoid copyrights. Save the link to Somewhere else</i></b>", reply_markup=InlineKeyboardMarkup(btn))
+            k = await client.send_message(chat_id=message.from_user.id,text=f"<b>📂 Fɪʟᴇ Nᴀᴍᴇ : <code>{title}</code> \n\n⚙️ Fɪʟᴇ Sɪᴢᴇ : {get_size(files.file_size)}\n\n🔗 Fɪʟᴇ Lɪɴᴋ : {g}\n\n<i>Note: This message is deleted in 20 mins to avoid copyrights. Save the link to Somewhere else</i></b>", reply_markup=InlineKeyboardMarkup(btn))
             await asyncio.sleep(1200)
             await k.edit("<b>Your message is successfully deleted!!!</b>")
             return
