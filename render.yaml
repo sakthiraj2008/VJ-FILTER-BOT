@@ -1,6 +1,6 @@
 services:
   # A Docker web service
-  - type: worker
+  - type: web
     name: VJ-FILTER-BOT
     env: python
     startCommand: python3 get_config.py && python3 bot.py
@@ -10,6 +10,6 @@ services:
     plan: free # optional (defaults to starter)
     branch: main # optional (defaults to master)
     numInstances: 1 # optional (defaults to 1)
-    #healthCheckPath: /
+    healthCheckPath: /
 
 #End of yaml
