@@ -211,7 +211,7 @@ Nᴀᴍᴇ - {}"""
 𝗠𝗲𝘀𝘀𝗮𝗴𝗲: <code>{}</code></b>"""
 
     CAPTION = """
-<b>📂Fɪʟᴇ Nᴀᴍᴇ : {file_name}
+<b>📂 Fɪʟᴇ Nᴀᴍᴇ : {file_name}
 
 ⚙️ Fɪʟᴇ Sɪᴢᴇ : {file_size}</b>""" 
 
